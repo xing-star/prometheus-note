@@ -1,0 +1,22 @@
+version: "3"
+services:
+  prometheus:
+    restart: always
+    image: prom/prometheus
+    container_name: prometheus
+    network_mode: host
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    command:
+      - '--path.rootfs=/host'
+    network_mode: host
+    pid: host
+    restart: always
+    volumes:
+      - '/:/host:ro,rslave'
