@@ -7,6 +7,8 @@ services:
     network_mode: host
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
 
   node_exporter:
     image: quay.io/prometheus/node-exporter:latest
@@ -18,3 +20,9 @@ services:
     restart: always
     volumes:
       - '/:/host:ro,rslave'
+
+  alertmanager:
+    image: prom/alertmanager
+    container_name: alertmanager
+    network_mode: host
+    restart: always
