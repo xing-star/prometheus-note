@@ -11,4 +11,4 @@ route:
 receivers:
   - name: 'mail-receiver'
     email_configs:
-      - to: '198720925730@163.com'
+      - to: '18720925730@163.com'
