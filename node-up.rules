@@ -2,7 +2,7 @@ groups:
 - name: node-up
   rules:
   - alert: node-up
-    expr: up{job="node-exporter"} == 0
+    expr: up{job="node"} == 0
     for: 15s
     labels:
       severity: 1
