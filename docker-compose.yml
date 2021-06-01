@@ -4,7 +4,7 @@ services:
     restart: always
     image: prom/prometheus
     container_name: prometheus
-    network_mode: host
+#    network_mode: host
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - ./node-up.rules:/etc/prometheus/rules/node-up.rules

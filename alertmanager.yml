@@ -1,25 +1,14 @@
 global:
-  resolve_timeout: 5m
-  smtp_from: '455013140@qq.com'
-  smtp_smarthost: 'smtp.qq.com:465'
-  smtp_auth_username: '455013140@qq.com'
-  smtp_auth_password: 'ovipumydqidxcaad'
-  smtp_require_tls: false
-  stmp_hello: 'qq.com'
+  smtp_smarthost: 'smtp.163.com:25'
+  smtp_from: '18720925730@163.com'
+  smtp_auth_username: '18720925730@163.com'
+  smtp_auth_password: 'CEWKYXACOYRRAGDU'
+
 route:
-  group_by: ['alertname']
-  group_wait: 5s
-  group_interval: 5s
-  repect_interval: 5m
-  receiver: 'email'
+  group_interval: 1m
+  repeat_interval: 1m
+  receiver: 'mail-receiver'
 receivers:
-  - name: 'email'
+  - name: 'mail-receiver'
     email_configs:
-      - to: '455013140@qq.com'
-        send_resolved: true
-inhibit_rules:
-  - source_match:
-      severity: 'critical'
-    target_match:
-      severity: 'warning'
-      equal: ['alertname', 'dev', 'instance']
+      - to: '198720925730@163.com'
