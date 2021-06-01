@@ -18,7 +18,7 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-
+  # 此处的job name名字要跟报警规则里面的job名字保持一致
   - job_name: 'node'
     static_configs:
       - targets: ['192.168.14.135:9100']
@@ -32,3 +32,5 @@ alerting:
 
 rule_files:
   - "/etc/prometheus/rules/*.rules"
+
+

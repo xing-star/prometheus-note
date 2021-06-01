@@ -12,3 +12,15 @@ receivers:
   - name: 'mail-receiver'
     email_configs:
       - to: '18720925730@163.com'
+
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 1m
+  repeat_interval: 4h
+  receiver: 'webhook'
+receivers:
+  - name: 'webhook'
+    webhook_configs:
+      - url: 'http://127.0.0.1:5000/hello'
