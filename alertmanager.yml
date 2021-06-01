@@ -4,23 +4,23 @@ global:
   smtp_auth_username: '18720925730@163.com'
   smtp_auth_password: 'CEWKYXACOYRRAGDU'
 
-route:
-  group_interval: 1m
-  repeat_interval: 1m
-  receiver: 'mail-receiver'
-receivers:
-  - name: 'mail-receiver'
-    email_configs:
-      - to: '18720925730@163.com'
+#route:
+#  group_interval: 1m
+#  repeat_interval: 1m
+#  receiver: 'mail-receiver'
+#receivers:
+#  - name: 'mail-receiver'
+#    email_configs:
+#      - to: '18720925730@163.com'
 
 
 route:
   group_by: ['alertname']
   group_wait: 10s
   group_interval: 1m
-  repeat_interval: 4h
+  repeat_interval: 1m
   receiver: 'webhook'
 receivers:
   - name: 'webhook'
     webhook_configs:
-      - url: 'http://127.0.0.1:5000/hello'
+      - url: 'http://192.168.200.7:5000/hello'
